@@ -1,16 +1,20 @@
 import React from "react";
-
+import Synonyms from "./Synonyms"; 
 
 export default function Meanings({ meaning }) {
+
+console.log(meaning);
   return (
-    <div> 
-      <strong>{meaning.partOfSpeech}</strong> <br/>
-      {meaning.definition} <br/>
+    <div style={{ marginBottom: '20px' }}>
+      <strong>Part of Speech:</strong> {meaning.partOfSpeech} <br/>
+      <strong>Definition:</strong> {meaning.definition} <br/>
       {meaning.example && (
-        <div>
-          <em>"{meaning.example}"</em>
+        <div style={{ marginTop: '10px' }}>
+          <strong>Example:</strong> <em>"{meaning.example}"</em> <br/>
         </div>
       )}
+      
+      <Synonyms synonyms={meaning.synonyms} />
     </div>
   );
 }
