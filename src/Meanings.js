@@ -3,7 +3,7 @@ import Synonyms from "./Synonyms";
 
 export default function Meanings({ meaning }) {
 
-console.log(meaning);
+
   return (
     <div style={{ marginBottom: '20px' }}>
       <strong>Part of Speech:</strong> {meaning.partOfSpeech} <br/>

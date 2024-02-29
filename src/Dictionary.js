@@ -10,7 +10,7 @@ export default function Dictionary() {
     
 
         function handleResponse(response) {
-        
+        console.log(response.data);
          setResultData(response.data);
          setError(false);
         
