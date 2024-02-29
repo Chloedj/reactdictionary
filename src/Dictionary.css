@@ -1,1 +1,38 @@
-.Dictionary {}
+
+.dictionary h4 {
+    font-size: 18px;
+    margin: 20px 0px;    
+}
+
+.Dictionary section{
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 100px;
+    box-shadow: 0 5px 5px rgba(0,0,0,0.1), 0 5px 5px rgba(0,0,0,0.1);
+}
+  .searchbar {
+                display: block;
+            height: 64px;
+            color: #666;
+            font-size: 18px;
+            line-height: 21px;
+            padding: 22px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            width: 100%;
+            margin-top: 20px;
+  }
+
+  .Hint {
+    font-size: 12px;
+    opacity: 0.7;
+    margin-top: 5px;
+    display:block;
+  }
+
+  @media (max-width: 480px) {
+    .Dictionary section {
+      margin: 20px;
+    }
+  }

@@ -4,9 +4,10 @@ import axios from "axios";
 import Results from "./Results";
 
 export default function Dictionary() {
-    let [searchTerm, setSearchTerm] = useState("");
+    let [searchTerm, setSearchTerm] = useState("Dictionary");
     let [resultData, setResultData] = useState(null);
     let [error, setError] = useState(false);
+    let [loaded, setLoaded] = useState(false);
     
 
         function handleResponse(response) {
@@ -20,7 +21,7 @@ function handleError() {
     setResultData(null); 
 }
      function search(event) {
-        event.preventDefault(); 
+        if (event) event.preventDefault(); 
         setError(false);
 
         if (searchTerm !== "") { 
@@ -37,15 +38,26 @@ function handleError() {
               setSearchTerm(event.target.value);
             }
 
+    function load() {
+        setLoaded(true);
+        search();
+    }
 
-
+    if (loaded){
     return (
     <div className="Dictionary">
+        <section>
+        <h4>What word do you want to search for?</h4>
         <form onSubmit={search}>
-            <input type="search" placeholder="Search for a word..." autoFocus="on" onChange={handleSearchTermChange}/>
-            <input type="submit" value="Search" />
-        </form>
+            <input type="search" placeholder="Search for a word..." autoFocus="on" onChange={handleSearchTermChange} className="searchbar"/>
+            
+            <div className="Hint">i.e. Sunset, Forest, Book, Yoga</div>
+        </form></section>
         <Results data={resultData} error={error}/>
     </div>
 );
+} else {
+    load();
+    return "Loading";
+}
 }
