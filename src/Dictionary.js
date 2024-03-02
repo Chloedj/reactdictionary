@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import './Dictionary.css';
 import axios from "axios";
 import Results from "./Results";
+import Images from "./Images";
 
 export default function Dictionary() {
     let [searchTerm, setSearchTerm] = useState("Dictionary");
@@ -20,6 +21,7 @@ function handleError() {
     setError(true); 
     setResultData(null); 
 }
+
      function search(event) {
         if (event) event.preventDefault(); 
         setError(false);
@@ -54,6 +56,7 @@ function handleError() {
             <div className="Hint">i.e. Sunset, Forest, Book, Yoga</div>
         </form></section>
         <Results data={resultData} error={error}/>
+        <Images data={resultData}/>
     </div>
 );
 } else {
